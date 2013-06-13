@@ -10,14 +10,15 @@ public class GraphicsMain extends PApplet{
 	public void setup() {
 		size(400,400,P3D);
 		background(255);
-		pic = loadImage(filepath + "small_jones6.png");
-		pic2 = loadImage(filepath + "small_dresser10.png");
+//		pic = loadImage(filepath + "small_jones6.png");
+//		pic2 = loadImage(filepath + "small_dresser10.png");
+		PGraphicsMaker pg = new PGraphicsMaker(this); // pass itself as the applet to make the processing library accessible
 		
 	}
 	
 	public void draw() {
-		image(pic,10,10,100,90);
-		image(pic2,10,50,50,50);
+//		image(pic,10,10,100,90);
+//		image(pic2,10,50,50,50);
 			
 	}
 
