@@ -1,24 +1,29 @@
 package tester;
 
+import java.util.ArrayList;
 import processing.core.*;
 
 public class GraphicsMain extends PApplet{
-	PImage pic;
-	PImage pic2;
+//	PImage pic;
+//	PImage pic2;
 	String filepath = "/Users/nataliesettles/Documents/workspace/PGraphicsTest/src/data/";
+	ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
 	
 	public void setup() {
-		size(400,400,P3D);
+		size(800,500,P3D);
 		background(255);
-//		pic = loadImage(filepath + "small_jones6.png");
-//		pic2 = loadImage(filepath + "small_dresser10.png");
-		PGraphicsMaker pg = new PGraphicsMaker(this); // pass itself as the applet to make the processing library accessible
-		
+		PGraphicsMaker pgm = new PGraphicsMaker(this); // pass itself as the applet to make the processing library accessible
+		motifArray = pgm.makeMotifArray();
+		if (motifArray.get(0) == null) {
+			System.out.println("The motif array is unfilled!");
+		}
 	}
 	
 	public void draw() {
-//		image(pic,10,10,100,90);
-//		image(pic2,10,50,50,50);
+		for (int i = 0; i < motifArray.size(); i ++) {
+			image(motifArray.get(i),200+(400*i),100);	
+		}
+		
 			
 	}
 
