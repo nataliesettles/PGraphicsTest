@@ -4,20 +4,27 @@ import java.util.ArrayList;
 import processing.core.*;
 
 public class GraphicsMain extends PApplet{
-//	PImage pic;
-//	PImage pic2;
-	String filepath = "/Users/nataliesettles/Documents/workspace/PGraphicsTest/src/data/";
-//	ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
-	ArrayList<PGraphics> motifArray;
-//	PGraphics pg = new PGraphics();
-	PGraphicsMaker pgm;
+	String filepath = "/Users/nataliesettles/Documents/workspace/elementImages/data/";
+	ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
+	int stageWidth = 100; // eventually make this based on the motif's max width
+	int stageHeight = 400; // make this based on the motif's max height
+	PImage pic = loadImage(filepath + "small_jones6.png");
+	PImage pic2 = loadImage(filepath + "small_dresser10.png");
+
 	
 	public void setup() {
 		size(800,500,P3D);
 		background(255);
-//		ArrayList<PGraphics> motifArray = new ArrayList();
-		PGraphicsMaker pgm = new PGraphicsMaker(this); // pass itself as the applet to make the processing library accessible
-		motifArray = pgm.makeMotifArray();
+		
+		for (int i = 0; i < 2; i++) {
+			motifArray.add(createGraphics(stageWidth,stageHeight,P3D));
+			motifArray.get(i).beginDraw();
+			motifArray.get(i).image(pic,10,10,100,90);
+			motifArray.get(i).image(pic2,10,50,50,50);
+			motifArray.get(i).endDraw();
+			
+		}
+
 		if (motifArray.get(0) == null) {
 			System.out.println("The motif array is unfilled!");
 		}
@@ -26,9 +33,7 @@ public class GraphicsMain extends PApplet{
 	public void draw() {
 		for (int i = 0; i < motifArray.size(); i ++) {
 			image(motifArray.get(i),200+(400*i),100);
-//			motifArray.get(i);
-//			canvas.beginDraw();
-//			canvas.endDraw();
+
 		}
 		
 			
