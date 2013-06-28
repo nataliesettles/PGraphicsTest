@@ -7,11 +7,15 @@ public class GraphicsMain extends PApplet{
 //	PImage pic;
 //	PImage pic2;
 	String filepath = "/Users/nataliesettles/Documents/workspace/PGraphicsTest/src/data/";
-	ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
+//	ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
+	ArrayList<PGraphics> motifArray;
+//	PGraphics pg = new PGraphics();
+	PGraphicsMaker pgm;
 	
 	public void setup() {
 		size(800,500,P3D);
 		background(255);
+//		ArrayList<PGraphics> motifArray = new ArrayList();
 		PGraphicsMaker pgm = new PGraphicsMaker(this); // pass itself as the applet to make the processing library accessible
 		motifArray = pgm.makeMotifArray();
 		if (motifArray.get(0) == null) {
@@ -21,7 +25,10 @@ public class GraphicsMain extends PApplet{
 	
 	public void draw() {
 		for (int i = 0; i < motifArray.size(); i ++) {
-			image(motifArray.get(i),200+(400*i),100);	
+			image(motifArray.get(i),200+(400*i),100);
+//			motifArray.get(i);
+//			canvas.beginDraw();
+//			canvas.endDraw();
 		}
 		
 			
