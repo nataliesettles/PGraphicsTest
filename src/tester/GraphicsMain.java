@@ -17,7 +17,7 @@ public class GraphicsMain extends PApplet{
 
 	
 	public void setup() {
-		size(screenWidth,screenHeight,P3D);
+		size(screenWidth,screenHeight,JAVA2D);
 		background(255);
 		
 		motifArray = pgm.makeMotifArray();

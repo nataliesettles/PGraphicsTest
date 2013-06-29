@@ -31,15 +31,18 @@ public class PGraphicsMaker {
 	 */
 	
 	public ArrayList makeMotifArray() {
+		String filepathTempPngs = "/Users/nataliesettles/Documents/workspace/PGraphicsTest/tempPngs/";
 		ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
+		
 		
 		for (int i = 0; i < populationSampleSize; i++) {
 			//TODO: Compose the images into a motif and query to see how big it is overall to determine how big to make the (createGraphics()) object
-			motifArray.add(parent.createGraphics(stageWidth,stageHeight,parent.P3D)); // create the stage
+			motifArray.add(parent.createGraphics(stageWidth,stageHeight,parent.JAVA2D)); // create the stage
 			motifArray.get(i).beginDraw();
 			motifArray.get(i).image(pic,10,10,100,90);
 			motifArray.get(i).image(pic2,10,50,50,50);
 			motifArray.get(i).endDraw();
+			motifArray.get(i).save(filepathTempPngs + "motif" + i + ".png");
 		}
 		return motifArray;
 	}

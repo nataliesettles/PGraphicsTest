@@ -41,6 +41,8 @@ Thumbs.db
 # Other #
 #########
 *.html
+*.png
+tempPngs/**
 
 # Eclipse Related #
 ###################
