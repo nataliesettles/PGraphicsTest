@@ -4,26 +4,31 @@ import java.util.ArrayList;
 import processing.core.*;
 
 public class GraphicsMain extends PApplet{
-	String filepath = "/Users/nataliesettles/Documents/workspace/elementImages/data/";
+	int screenWidth = 800;
+	int screenHeight = 500;
+//	String filepath = "/Users/nataliesettles/Documents/workspace/elementImages/data/";
+	PGraphicsMaker pgm = new PGraphicsMaker(this);
 	ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
-	int stageWidth = 100; // eventually make this based on the motif's max width
-	int stageHeight = 400; // make this based on the motif's max height
-	PImage pic = loadImage(filepath + "small_jones6.png");
-	PImage pic2 = loadImage(filepath + "small_dresser10.png");
+//	ArrayList<PGraphics> motifArray;
+//	int stageWidth = 100; // eventually make this based on the motif's max width
+//	int stageHeight = 400; // make this based on the motif's max height
+//	PImage pic = loadImage(filepath + "small_jones6.png");
+//	PImage pic2 = loadImage(filepath + "small_dresser10.png");
 
 	
 	public void setup() {
-		size(800,500,P3D);
+		size(screenWidth,screenHeight,P3D);
 		background(255);
 		
-		for (int i = 0; i < 2; i++) {
-			motifArray.add(createGraphics(stageWidth,stageHeight,P3D));
-			motifArray.get(i).beginDraw();
-			motifArray.get(i).image(pic,10,10,100,90);
-			motifArray.get(i).image(pic2,10,50,50,50);
-			motifArray.get(i).endDraw();
-			
-		}
+		motifArray = pgm.makeMotifArray();
+		
+//		for (int i = 0; i < 2; i++) {
+//			motifArray.add(createGraphics(stageWidth,stageHeight,P3D));
+//			motifArray.get(i).beginDraw();
+//			motifArray.get(i).image(pic,10,10,100,90);
+//			motifArray.get(i).image(pic2,10,50,50,50);
+//			motifArray.get(i).endDraw();			
+//		}
 
 		if (motifArray.get(0) == null) {
 			System.out.println("The motif array is unfilled!");
