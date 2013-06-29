@@ -10,13 +10,12 @@ public class PGraphicsMaker {
 	String filepath = "/Users/nataliesettles/Documents/workspace/elementImages/data/";
 	PApplet parent;
 	int populationSampleSize = 16;
-//	ArrayList<PGraphics> motifArray = new ArrayList<PGraphics>();
 	int stageWidth = 100; // eventually make this based on the motif's max width
 	int stageHeight = 400; // make this based on the motif's max height
 	ArrayList<PGraphics> motifArray;
 	PImage pic;
 	PImage pic2;
-//	
+
 	public PGraphicsMaker(PApplet pa) {
 		parent = pa;
 		pic = parent.loadImage(filepath + "small_jones6.png");
