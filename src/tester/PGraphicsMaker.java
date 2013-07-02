@@ -1,26 +1,32 @@
 package tester;
 
 import java.util.ArrayList;
-import processing.core.PApplet;
-import processing.core.PGraphics;
-import processing.core.PImage;
+//import processing.core.PApplet;
+//import processing.core.PGraphics;
+//import processing.core.PImage;
 import processing.core.*;
 
 public class PGraphicsMaker {
 	String filepath = "/Users/nataliesettles/Documents/workspace/elementImages/data/";
 	PApplet parent;
 	int populationSampleSize = 16;
-	int stageWidth = 100; // eventually make this based on the motif's max width
+	int stageWidth = 150; // eventually make this based on the motif's max width
 	int stageHeight = 400; // make this based on the motif's max height
 	ArrayList<PGraphics> motifArray;
 	PImage pic;
+	float picWidth = 100;
 	PImage pic2;
-
+	float pic2Width = 50;
+	
 	public PGraphicsMaker(PApplet pa) {
 		parent = pa;
 		pic = parent.loadImage(filepath + "small_jones6.png");
 		pic2 = parent.loadImage(filepath + "small_dresser10.png");
 	}
+	
+	// TODO: Reel through a genotype and find the widest image (or a parenthetical image, which is half the image's width, plus the shift off the central axis).
+	// Then find the height of a motif by doing something with the heights of the images and the segment spaces. This will all be reversed of course if the 
+	// paper is oriented horizontally.
 	
 	/**makeMotifArray -
 	 * An array of PGraphics objects that are individual graphic stages for each motif (remember to make each object slightly larger than the images it contains,
@@ -36,10 +42,11 @@ public class PGraphicsMaker {
 		
 		for (int i = 0; i < populationSampleSize; i++) {
 			//TODO: Compose the images into a motif and query to see how big it is overall to determine how big to make the (createGraphics()) object
-			motifArray.add(parent.createGraphics(stageWidth,stageHeight,parent.JAVA2D)); // create the stage
+			motifArray.add(parent.createGraphics(stageWidth,stageHeight,parent.P3D)); // create the stage
 			motifArray.get(i).beginDraw();
-			motifArray.get(i).image(pic,10,10,100,90);
-			motifArray.get(i).image(pic2,10,50,50,50);
+			motifArray.get(i).background(255, 255, 255, 0);
+			motifArray.get(i).image(pic,((stageWidth/2) - (picWidth/2)),50,picWidth,90);
+			motifArray.get(i).image(pic2,((stageWidth/2) - (pic2Width/2)),10,pic2Width,50);
 			motifArray.get(i).endDraw();
 			motifArray.get(i).save(filepathTempPngs + "motif" + i + ".png");
 		}
