@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Grid2 {
   
-  int populationSampleSize = 16; // the number of individual motifs the grid can hold
+  int populationSampleSize = 18; // the number of individual motifs the grid can hold
   ArrayList gridPositions; // this is the array issued by Grid that specifies the fixed positions in the wallpaper grid
   PApplet parent;
   
@@ -16,41 +16,41 @@ public class Grid2 {
   }
   
   public ArrayList gridPositions() {
-    float xPosition = (parent.width/8) - 75; // 75 is half the width of a PGraphic stage so that the motif will be centered
-    float yPosition = 0;
+    float xPosition = 0 - 200; // the zero position minus half the width (height) of a horizontally displayed motif 
+    float yPosition = 7*(parent.height/8) - 75; // 75 is half the width of a PGraphic stage so that the motif will be centered
     for (int i = 0; i < populationSampleSize; i++) {
       float[] segCoords = new float[2]; // a holding array for the x,y coords of a grid location
-      if (i < 4) {
+      if (i < 5) {
         if (i == 0) {
           // don't increment x
           // don't increment y
         } else {
-          // don't increment x
-          yPosition += parent.height/4;
-        }
-      } else if (i < 8) {
-        if (i == 4) {
           xPosition += parent.width/4;
-          yPosition = 0; // reset y
-        } else {
-          // don't increment x
-          yPosition += parent.height/4;
+          // don't increment y
         }
-      } else if (i < 12) {
-        if (i == 8) {
-          xPosition += parent.width/4;
-          yPosition = 0; // reset y
+      } else if (i < 9) {
+        if (i == 5) {
+          xPosition = parent.width/8; // offset x
+          yPosition -= parent.height/4; // increment y
         } else {
-          // don't increment x
-          yPosition += parent.height/4;
+          xPosition += parent.width/4;
+          // don't increment y
         }
-      } else if (i < 16) {
-        if (i == 12) {
-          xPosition += parent.width/4;
-          yPosition = 0; // reset y
+      } else if (i < 14) {
+        if (i == 9) {
+          xPosition = 0; // reset x
+          yPosition -= parent.height/4; // increment y
         } else {
-          // don't increment x
-          yPosition += parent.height/4;
+          xPosition += parent.width/4;
+          // don't increment y
+        }
+      } else if (i < 18) {
+        if (i == 14) {
+          xPosition = parent.width/8;
+          yPosition -= parent.height/4; // increment y
+        } else {
+          xPosition += parent.width/4;
+          // don't increment y
         }
       } else {
         out.println("Oops, you now have too many genotypes for this "+ populationSampleSize +" sized grid!");

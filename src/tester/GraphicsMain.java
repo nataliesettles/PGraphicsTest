@@ -31,8 +31,8 @@ public class GraphicsMain extends PApplet{
 		for (int i = 0; i < motifArray.size(); i ++) {
 			float [] coords = (float[]) gridPositions.get(i);
 			image(motifArray.get(i),coords[0],coords[1]);
-//			g.removeCache(motifArray.get(i));// this is avoiding the leak
-//			println(frameCount + " " + g.getCache(motifArray.get(i)));
+			g.removeCache(motifArray.get(i));// this is avoiding the leak
+			println(frameCount + " " + g.getCache(motifArray.get(i)));
 
 		}
 		
