@@ -87,7 +87,7 @@ public class PGraphicsMaker {
 		motifArray.get(i).background(255, 255, 255, 0);
 		motifArray.get(i).image(pic,50,((stageHeight/2) - (picHeight/2)),90,picHeight);
 		motifArray.get(i).image(pic2,10,((stageHeight/2) - (pic2Height/2)),50,pic2Height);
-		motifArray.get(i).image(pic3,40,(stageHeight/2)-75,50,pic3Height/2);
+		motifArray.get(i).image(pic3,40,(float)((stageHeight/2) - ((pic3Height/2) - (pic3Height*.05))),50,pic3Height/2);
 		motifArray.get(i).endDraw();
 //		motifArray.get(i).save(filepathTempPngs + "motif" + i + ".png");
 	}
