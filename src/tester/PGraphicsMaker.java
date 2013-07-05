@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import processing.core.*;
 
 public class PGraphicsMaker {
-	String filepath = "/Users/nataliesettles/Documents/workspace/elementImages/data/";
+//	String filepath = "/Users/nataliesettles/Documents/workspace/elementImages/data/";
 	PApplet parent;
 	int populationSampleSize = 18;
 //	int stageWidth = 150; // vertical - eventually make this based on the motif's max width
@@ -26,7 +26,8 @@ public class PGraphicsMaker {
 	float pic3Height = 75; // for horizontal display
 	
 	
-	public PGraphicsMaker(PApplet pa) {
+	public PGraphicsMaker(PApplet pa, PImage pic_, PImage pic2_, PImage pic3_) {
+		
 		parent = pa;
 		
 		// for vertical display
@@ -35,9 +36,15 @@ public class PGraphicsMaker {
 //		pic3 = parent.loadImage(filepath + "small_jones6.png");
 		
 		// for horizontal display
-		pic = parent.loadImage(filepath + "side_small_jones6.png");
-		pic2 = parent.loadImage(filepath + "side_small_dresser10.png");
-		pic3 = parent.loadImage(filepath + "side_small_morris6.png");
+//		pic = parent.loadImage(filepath + "side_small_jones6.png");
+//		pic2 = parent.loadImage(filepath + "side_small_dresser10.png");
+//		pic3 = parent.loadImage(filepath + "side_small_morris6.png");
+		
+		// The program runs faster if the images are loaded once in setup at the beginning. Not sure how to handle this for the repeated loading of the new
+		// PGraphics, but at least moving these to the setup() in the main program will help
+		pic = pic_;
+		pic2 = pic2_;
+		pic3 = pic3_;
 	}
 	
 	// TODO: Reel through a genotype and find the widest image (or a parenthetical image, which is half the image's width, plus the shift off the central axis).
